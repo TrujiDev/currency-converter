@@ -1,7 +1,6 @@
 package com.trujidev.models;
 
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class ExchangeRate {
   private String result;
@@ -11,30 +10,6 @@ public class ExchangeRate {
   public ExchangeRate(String result, String base_code, Map<String, Double> conversion_rates) {
     this.result = result;
     this.base_code = base_code;
-    this.conversion_rates = conversion_rates;
-  }
-
-  public String getResult() {
-    return result;
-  }
-
-  public void setResult(String result) {
-    this.result = result;
-  }
-
-  public String getBase_code() {
-    return base_code;
-  }
-
-  public void setBase_code(String base_code) {
-    this.base_code = base_code;
-  }
-
-  public Map<String, Double> getConversion_rates() {
-    return conversion_rates;
-  }
-
-  public void setConversion_rates(Map<String, Double> conversion_rates) {
     this.conversion_rates = conversion_rates;
   }
 
@@ -49,7 +24,7 @@ public class ExchangeRate {
     return "{\n" +
         "  \"result\": \"" + result + "\",\n" +
         "  \"base_code\": \"" + base_code + "\",\n" +
-        "  \"conversion_rates\": " + ratesJoiner.toString() + "\n" +
+        "  \"conversion_rates\": " + ratesJoiner + "\n" +
         "}";
   }
 }
