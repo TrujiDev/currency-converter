@@ -1,30 +1,22 @@
 package com.trujidev.models;
 
-import java.util.*;
-
-public class ExchangeRate {
+public class ExchangeRateConversion {
   private String result;
   private String base_code;
-  private Map<String, Double> conversion_rates;
+  private String target_code;
+  private double conversion_rate;
 
-  public ExchangeRate(String result, String base_code, Map<String, Double> conversion_rates) {
+  public ExchangeRateConversion(String result, String base_code, String target_code, double conversion_rate) {
     this.result = result;
     this.base_code = base_code;
-    this.conversion_rates = conversion_rates;
+    this.target_code = target_code;
+    this.conversion_rate = conversion_rate;
   }
 
   @Override
   public String toString() {
-    StringJoiner ratesJoiner = new StringJoiner(", ", "{", "}");
-
-    for (Map.Entry<String, Double> entry : conversion_rates.entrySet()) {
-      ratesJoiner.add("\"" + entry.getKey() + "\": " + entry.getValue());
-    }
-
-    return "{\n" +
-        "  \"result\": \"" + result + "\",\n" +
-        "  \"base_code\": \"" + base_code + "\",\n" +
-        "  \"conversion_rates\": " + ratesJoiner + "\n" +
-        "}";
+    return "-----------------------------" +
+        "\nConversion from " + base_code + " to " + target_code + ":\n" +
+        "Rate: " + conversion_rate;
   }
 }
